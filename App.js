@@ -1,41 +1,44 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Button, Text } from "react-native";
+import { StyleSheet } from "react-native";
+
+import HomeScreen from "./src/screens/HomeScreen";
+import DetailsScreen from "./src/screens/DetailsScreen";
+import ImageScreen from "./src/screens/ImageScreen";
 
 const Stack = createNativeStackNavigator();
-
-const HomeScreen = ({navigation}) => {
-  return (
-    <Button 
-      title="Go to Belal's profile"
-      onPress={()=> navigation.navigate('Profile', {name: 'Belal'})}
-    />
-  );
-}
-
-const ProfileScreen = ({navigation, route})=> {
-  return (
-    <Text>This is {route.params.name}'s profile</Text>
-  );
-}
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        initialRouteName="Home">
         <Stack.Screen 
           name="Home"
           component={HomeScreen}
           options={{ title: 'Welcome'}}
         />
         <Stack.Screen 
-          name="Profile"
-          component={ProfileScreen}
+          name="Details"
+          component={DetailsScreen}
+        />
+        <Stack.Screen 
+          name="BigImageView"
+          component={ImageScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+      flex: 1,
+      backgroundColor: '#fff',
+      alignItems: "center",
+      justifyContent: "center",
+  }
+});
 
 export default App;
