@@ -1,7 +1,8 @@
 import React from "react";
 import { Button, View, Text, StyleSheet } from "react-native";
 
-const ImageScreen = (props) => {
+const ImageScreen = ({navigation, route}) => {
+    console.log(route);
     return (
         <View style={styles.mainView}>
             <Text>Image Screen</Text>
