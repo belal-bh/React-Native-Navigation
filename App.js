@@ -34,10 +34,12 @@ const App = () => {
         <Stack.Screen 
           name="Home_to_Details"
           component={DetailsScreen}
+          options={({route})=> ({title: route.params.movie.title})}
         />
         <Stack.Screen 
           name="Details_to_Details"
           component={DetailsScreen}
+          options={({route})=> ({title: route.params.movie.title})}
         />
         <Stack.Screen 
           name="BigImageView"

@@ -7,7 +7,7 @@ const HomeScreen = ({navigation, route}) => {
         <View style={styles.mainView}>
             <Text>Home Screen</Text>
             <Button 
-                title="Go to Details" 
+                title="Star Wars"
                 onPress={()=> navigation.navigate('Home_to_Details', { movie: {
                     title: "Star Wars",
                     release: 1977,
@@ -15,7 +15,7 @@ const HomeScreen = ({navigation, route}) => {
                 }})}
             />
             <Button 
-                title="Go to Details" 
+                title="Black Panther" 
                 onPress={()=> navigation.navigate('Home_to_Details', { movie: {
                     title: "Black Panther",
                     release: 2018,
@@ -23,7 +23,7 @@ const HomeScreen = ({navigation, route}) => {
                 }})}
             />
             <Button 
-                title="Go to Details" 
+                title="The Matrix" 
                 onPress={()=> navigation.navigate('Home_to_Details', { movie: {
                     title: "The Matrix",
                     release: 1999,
