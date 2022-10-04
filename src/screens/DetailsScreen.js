@@ -3,24 +3,16 @@ import { Button, View, Text, StyleSheet } from "react-native";
 
 const DetailsScreen = ({navigation, route}) => {
     console.log(route);
-    const {screenNumber} = route.params;
+    const movie = route.params.movie;
     return (
         <View style={styles.mainView}>
-            <Text>Details Screen</Text>
-            <Text style={{fontSize: 100}}>{screenNumber}</Text>
-            <Button 
-                title="Go to BigImageView" 
-                onPress={() => navigation.navigate('BigImageView')}
-            />
+            <Text style={{fontSize: 20}}>{movie.title} ({movie.release})</Text>
+            <Text style={{fontSize: 100}}>{movie.screenNumber}</Text>
             <Button 
                 title="More Details" 
-                onPress={() => navigation.push('Details_to_Details', {
-                    screenNumber: (screenNumber + 1)
-                })}
-            />
-            <Button 
-                title="Go Back Screen" 
-                onPress={() => navigation.goBack()}
+                onPress={() => {
+                    movie.screenNumber = (movie.screenNumber + 1);
+                    navigation.push('Details_to_Details', {movie})}}
             />
             <Button 
                 title="Go Back Home" 
